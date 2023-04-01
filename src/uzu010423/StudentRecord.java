@@ -20,6 +20,30 @@ public class StudentRecord {
         
         private static int studentCount;
         
+        
+        public StudentRecord(){ 
+            //area inisialisasi kode; 
+            studentCount++;
+        } 
+        
+        public StudentRecord(String temp){ 
+            this.name = temp; 
+            studentCount++;
+        } 
+        
+        public StudentRecord(String name, String address){ 
+            this.name = name; 
+            this.address = address; 
+            studentCount++;
+        } 
+        
+        public StudentRecord(double mGrade, double eGrade, double sGrade){ 
+            mathGrade = mGrade; 
+            englishGrade = eGrade; 
+            scienceGrade = sGrade; 
+            studentCount++;
+        }
+            
         public String getName(){ 
             return name; 
         }

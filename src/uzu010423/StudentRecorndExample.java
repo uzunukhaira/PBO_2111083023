@@ -12,6 +12,7 @@ public class StudentRecorndExample {
     public static void main(String[] args) {
         StudentRecord anna = new StudentRecord();
         StudentRecord cris = new StudentRecord();
+        StudentRecord ali = new StudentRecord("Ali");
         
         //isi Data
         anna.setName("Anna");
@@ -32,6 +33,9 @@ public class StudentRecorndExample {
         System.out.println("Data Objek Cris");
         cris.print("");
         cris.print(70,80,90);
+        
+        System.out.println("Data Objek Ali");
+        ali.print("");
         
         //menampilkan jumlah siswa
         System.out.println("Count=" + StudentRecord.getStudentCount());
