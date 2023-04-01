@@ -8,7 +8,7 @@ package uzu010423;
  *
  * @author USER
  */
-public class StudentRecorndExample {
+public class StudentRecordExample {
     public static void main(String[] args) {
         StudentRecord anna = new StudentRecord();
         StudentRecord cris = new StudentRecord();
