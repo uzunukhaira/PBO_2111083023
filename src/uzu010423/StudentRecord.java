@@ -8,6 +8,8 @@ package uzu010423;
  *
  * @author USER
  */
+import java.util.Scanner;
+
 public class StudentRecord {
     
         private String name; 
@@ -19,6 +21,7 @@ public class StudentRecord {
         private double average; 
         
         private static int studentCount;
+        private static double nilaiHuruf;
         
         
         public StudentRecord(){ 
@@ -100,7 +103,11 @@ public class StudentRecord {
      
         public static double getStudentCount(){
             return studentCount;
-    }
+        }
+        
+        public static double getNilaiHuruf(){
+            return studentCount;
+        }
         public void print( String temp ){ 
             System.out.println("Name:" + name); 
             System.out.println("Address:" + address); 
@@ -113,4 +120,34 @@ public class StudentRecord {
             System.out.println("English Grade:" + eGrade); 
             System.out.println("Science Grade:" + sGrade); 
         }
-}
+        
+       public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int jumlahNilai = 0;
+        double rataRata;
+        String nilaiHuruf = "";
+            int[] nilai = new int[100];
+            for (int i = 0; i < 100; i++) {
+                System.out.print("Masukkan nilai ke-" + (i+1) + ": ");
+                nilai[i] = input.nextInt();
+                jumlahNilai += nilai[i];
+            }
+            
+            rataRata = (double) jumlahNilai / 100;
+            System.out.println("Rata-rata nilai: " + rataRata);
+
+            if (rataRata >= 80) {
+                nilaiHuruf = "A";
+            } else if (rataRata >= 65) {
+                nilaiHuruf = "B";
+            } else if (rataRata >= 55) {
+                nilaiHuruf = "C";
+            } else if (rataRata >= 40) {
+                nilaiHuruf = "D";
+            } else {
+                nilaiHuruf = "E";
+            }
+
+            System.out.println("Nilai huruf: " + nilaiHuruf);
+        }
+    }

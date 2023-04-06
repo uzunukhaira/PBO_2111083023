@@ -39,5 +39,8 @@ public class StudentRecordExample {
         
         //menampilkan jumlah siswa
         System.out.println("Count=" + StudentRecord.getStudentCount());
+        
+        //menampilkan hasil rata-rata
+        System.out.println("rata-rata=" + StudentRecord.getNilaiHuruf());
     }
 }
