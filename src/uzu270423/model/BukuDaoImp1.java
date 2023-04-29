@@ -10,9 +10,10 @@ import java.util.List;
  *
  * @author LABP1KOMP
  */
-public class BukuDaoImpl {
-    
-    public BukuDaoImpl() {
+public class BukuDaoImp1 implements BukuDao{
+    private List<Buku> data = new ArrayList<>();
+     
+    public BukuDaoImp1() {
         data.add(new Buku("B001", "Pascal", "Andi", "Andi"));
         data.add(new Buku("B002", "Algorithma", "Andi", "Andi"));
         data.add(new Buku("B003", "Java", "Andi", "Andi"));

@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author LABP1KOMP
  */
-public class PeminjamanDao {
+public interface PeminjamanDao {
     void save (Peminjaman peminjaman);
     void update (int index, Peminjaman peminjaman);
     void delete (int index);

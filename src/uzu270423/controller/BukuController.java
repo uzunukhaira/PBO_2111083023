@@ -18,7 +18,7 @@ public class BukuController {
 
     public BukuController(FormBuku formBuku) {
         this.formBuku = formBuku;
-        bukuDao = new BukuDaoImpl();
+        bukuDao = new BukuDaoImp1();
     }
     
     public void bersihForm(){

@@ -10,10 +10,10 @@ import java.util.List;
  *
  * @author LABP1KOMP
  */
-public class PeminjamandDaoImpl {
+public class PeminjamandDaoImp1 implements PeminjamanDao {
     List<Peminjaman> data = new ArrayList<>();
 
-    public PeminjamandDaoImpl() {
+    public PeminjamandDaoImp1() {
         data.add(new Peminjaman("1111", "B001", "2023-01-01", "2023-01-03"));
     }
     

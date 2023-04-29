@@ -10,10 +10,10 @@ import java.util.List;
  *
  * @author LABP1KOMP
  */
-public class AnggotaDaoImpl {
+public class AnggotaDaoImp1 implements AnggotaDao {
     List<Anggota> data = new ArrayList<>();
 
-    public AnggotaDaoImpl() {
+    public AnggotaDaoImp1() {
         data.add(new Anggota("1111", "Ali", "Padang"));
         data.add(new Anggota("1112", "Deni", "Padang panjang"));
         data.add(new Anggota("1113", "Ani", "Padang"));

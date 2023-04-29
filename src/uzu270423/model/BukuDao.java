@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author LABP1KOMP
  */
-public class BukuDao {
+public interface BukuDao {
     void save (Buku buku);
     void update (int index, Buku buku);
     void delete (int index);

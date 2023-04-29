@@ -18,7 +18,7 @@ public class AnggotaController {
     
     public AnggotaController(FormAnggota formAnggota){
         this.formAnggota = formAnggota;
-        anggotaDao = new AnggotaDaoImpl();
+        anggotaDao = new AnggotaDaoImp1();
     }
     
     public void bersihForm(){

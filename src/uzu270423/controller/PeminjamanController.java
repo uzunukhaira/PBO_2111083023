@@ -23,9 +23,9 @@ public class PeminjamanController {
 
     public PeminjamanController(FormPeminjaman formPeminjaman) {
         this.formPeminjaman = formPeminjaman;
-        anggotaDao = new AnggotaDaoImpl();
-        bukuDao = new BukuDaoImpl();
-        peminjamanDao = new PeminjamandDaoImpl();
+        anggotaDao = new AnggotaDaoImp1();
+        bukuDao = new BukuDaoImp1();
+        peminjamanDao = new PeminjamandDaoImp1();
     }   
     
     public void bersihForm(){
