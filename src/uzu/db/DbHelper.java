@@ -22,7 +22,7 @@ public class DbHelper {
     public static Connection getConnection() throws SQLException{
         if(connection==null){
             MysqlDataSource dataSource = new MysqlDataSource();
-            dataSource.setURL("jdbc:mysql://localhost/PBO_2211083014");
+            dataSource.setURL("jdbc:mysql://localhost/PBO_2111083023");
             dataSource.setUser("root");
             dataSource.setPassword("");
             connection = dataSource.getConnection();
