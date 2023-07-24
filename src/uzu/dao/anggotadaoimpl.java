@@ -6,8 +6,7 @@ package uzu.dao;
 
 import uzu.model.anggota;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 /**
  *
  * @author User
@@ -30,30 +29,32 @@ public class anggotadaoimpl implements anggotadao{
         ps.executeUpdate();
         ps.close();
     }
-    public void update(String kode,anggota anggota)throws Exception {
-        String sql = "UPDATE anggota SET kodeanggota = ?, "
-               + "namaanggota = ?, alamat = ?, jeniskelamin = ? "
-               + "WHERE kodeanggota =? ";
+    
+    public void update(anggota anggota) throws Exception {
+        String sql = "UPDATE  anggota SET namaanggota = ?, alamat=?, jeniskelamin=?, kodeanggota=? WHERE kodeanggota =?";
         PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setString(1, anggota.getKodeanggota());
-        ps.setString(2,anggota.getNamaanggota());
-        ps.setString(3,anggota.getAlamat());
-        ps.setString(4,anggota.getJeniskelamin());    
-        ps.setString(5, kode);
+        ps.setString(4, anggota.getKodeanggota());
+        ps.setString(1, anggota.getNamaanggota());
+        ps.setString(2, anggota.getAlamat());
+        ps.setString(3, anggota.getJeniskelamin());
+        ps.setString(5, anggota.getKodeanggota());
+        
         ps.executeUpdate();
-        ps.close();
+        //ps.close(); 
     }
-    public void delete(String kode)throws Exception{
+    
+    public void delete(anggota anggota) throws Exception {
         String sql = "DELETE FROM anggota WHERE kodeanggota =?";
         PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setString(1, kode);
+        ps.setString(1, anggota.getKodeanggota());
         ps.executeUpdate();
-        ps.close();
+        ps.close(); 
     }
-    public anggota getanggota (String kodeanggota)throws Exception{
-        String sql = "Select * FROM angota WHERE kodeanggota=?";
+    
+    public anggota getAnggota(String kodeanggota) throws Exception {
+        String sql = "SELECT * FROM anggota WHERE kodeanggota =?";
         PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setString(1,kodeanggota);
+        ps.setString(1, kodeanggota);
         ResultSet rs = ps.executeQuery();
         anggota anggota = null;
         if(rs.next()){
@@ -65,16 +66,17 @@ public class anggotadaoimpl implements anggotadao{
         }
         return anggota;
     }
-    public List <anggota> getAll()throws Exception{
-        String sql = "Select * From anggota";
+    
+    public List<anggota> getAll() throws Exception {
+        String sql = "Select * FROM anggota";
         PreparedStatement ps = connection.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
-        anggota anggota ;
+        anggota anggota;
         List<anggota> list = new ArrayList<>();
         while(rs.next()){
             anggota = new anggota();
             anggota.setKodeanggota(rs.getString(1));
-             anggota.setNamaanggota(rs.getString(2));
+            anggota.setNamaanggota(rs.getString(2));
             anggota.setAlamat(rs.getString(3));
             anggota.setJeniskelamin(rs.getString(4));
             list.add(anggota);

@@ -25,7 +25,7 @@ public class AnggotaController {
     anggotadao dao;
     Connection connection;
     
-    public AnggotaController (FormAnggota view){
+    public AnggotaController(FormAnggota view) {
         try {
             this.view = view;
             connection = DbHelper.getConnection();
@@ -34,48 +34,88 @@ public class AnggotaController {
             Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     public void cls(){
         view.getTxtKode().setText("");
         view.getTxtNama().setText("");
         view.getTxtAlamat().setText("");
-        view.getCboJenis().removeAllItems("");
+        view.getCboJenis().removeAllItems();
         view.getCboJenis().addItem("L");
         view.getCboJenis().addItem("P");
     }
     
-    public void tampil() {
-        try
-            DefaultTableModel tabelmodel = (DefaultTableModel)
-                    view.getTabelAnggota().getModel();
-            tabelModel.setRouwCount(0);
-            List<anggota> list = dao.getAll();
-            for(anggota a : list){
-                Object[]row = {
-                    a.getKodeanggota(),
-                    a.getNamaanggota(),
-                    a.getAlamat(),
-                    a.getJeniskelamin()
-                };
-                tabelModel.addRow(row);
-            }
+    public void tampil(){
+        try {
+             DefaultTableModel tabelModel = (DefaultTableModel) view.getTblAnggota().getModel();
+             tabelModel.setRowCount(0);
+             List<anggota> list = dao.getAll();
+             for(anggota a : list){
+                 Object[]row = {
+                     a.getKodeanggota(),
+                     a.getNamaanggota(),
+                     a.getAlamat(),
+                     a.getJeniskelamin()
+                 };
+                 tabelModel.addRow(row);
+             }
         } catch (Exception ex) {
-            Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE,null,ex);
         }
     }
     
     public void insert(){
         try {
-            anggota = new anggota;
-            anggota.setKodeanggota(view.getTxtKodeanggota().getText());
-            anggota.setNamaanggota(view.getTxtNamaanggota().getText());
+            anggota = new anggota();
+            anggota.setKodeanggota(view.getTxtKode().getText());
+            anggota.setNamaanggota(view.getTxtNama().getText());
             anggota.setAlamat(view.getTxtAlamat().getText());
-            anggota.setJeniskelamin(view.getCboJeniskelamin);
-                   .getSelectedItem().toString());
+            anggota.setJeniskelamin(view.getCboJenis().getSelectedItem().toString());
             dao.insert(anggota);
+            JOptionPane.showMessageDialog(view, "tambah data ok");
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(view, ex.getMessage());
-            Logger.getLogger(AnggotaConroller.class.getname().)log(Level.SEVERE,null,ex);  
+            Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE,null,ex);
         }
     }
-
+    
+    public void delete(){
+        try {
+            dao.delete(anggota);
+            JOptionPane.showMessageDialog(view, "Delete Data Ok");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(view, ex.getMessage());
+            Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+    
+    public void tabelKlik(){
+        try {
+            String kodeanggota = view.getTblAnggota().getValueAt(view.getTblAnggota().getSelectedRow(),0).toString();
+            anggota = dao.getAnggota(kodeanggota);
+            view.getTxtKode().setText(anggota.getKodeanggota());
+            view.getTxtNama().setText(anggota.getNamaanggota());
+            view.getCboJenis().setSelectedItem(anggota.getJeniskelamin());
+            view.getTxtAlamat().setText(anggota.getAlamat());
+        } catch (Exception ex) {
+            Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE,null,ex);
+        }
+        
+    }
+    
+    public void update(){
+        try {
+            anggota.setKodeanggota(view.getTxtKode().getText());
+            anggota.setNamaanggota(view.getTxtNama().getText());
+            anggota.setAlamat(view.getTxtAlamat().getText());
+            anggota.setJeniskelamin(view.getCboJenis().getSelectedItem().toString());
+            dao.update(anggota);
+            JOptionPane.showMessageDialog(view,"update data ok");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(view, ex.getMessage());
+            Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+        
+    
 }
    

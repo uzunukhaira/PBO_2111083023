@@ -4,16 +4,15 @@
  */
 package uzu.dao;
 
-import uzu.model.anggota;
 import java.util.*;
 /**
  *
  * @author User
  */
 public interface anggotadao {
-    void insert(anggota anggota) throws Exception;
-    void update(String index,anggota anggota)throws Exception;
-    void delete(String index)throws Exception;
-    anggota getanggota (String kodeanggota)throws Exception;
-    List <anggota> getAll()throws Exception;
+    void insert(uzu.model.anggota anggota) throws Exception;
+    void update(uzu.model.anggota anggota) throws Exception;
+    void delete(uzu.model.anggota anggota) throws Exception;
+    uzu.model.anggota getAnggota(String kodeanggota) throws Exception;
+    List<uzu.model.anggota> getAll() throws Exception;
 }

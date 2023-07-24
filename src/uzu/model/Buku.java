@@ -9,35 +9,34 @@ package uzu.model;
  * @author LAB-MM
  */
 public class Buku {
-    private String kode;
-    private String judul;
+    private String kodebuku;
+    private String judulbuku;
     private String pengarang;
-    private String penerbit;
-
-    public Buku() {
-    }
-
-    public Buku(String kode, String judul, String pengarang, String penerbit) {
-        this.kode = kode;
-        this.judul = judul;
-        this.pengarang = pengarang;
-        this.penerbit = penerbit;
-    }
+    private String Penerbit;
     
-    public String getKode() {
-        return kode;
+    public Buku(){}
+
+    public Buku(String kodebuku, String judulbuku, String pengarang, String Penerbit) {
+        this.kodebuku = kodebuku;
+        this.judulbuku = judulbuku;
+        this.pengarang = pengarang;
+        this.Penerbit = Penerbit;
     }
 
-    public void setKode(String kode) {
-        this.kode = kode;
+    public String getKodebuku() {
+        return kodebuku;
     }
 
-    public String getJudul() {
-        return judul;
+    public void setKodebuku(String kodebuku) {
+        this.kodebuku = kodebuku;
     }
 
-    public void setJudul(String judul) {
-        this.judul = judul;
+    public String getJudulbuku() {
+        return judulbuku;
+    }
+
+    public void setJudulbuku(String judulbuku) {
+        this.judulbuku = judulbuku;
     }
 
     public String getPengarang() {
@@ -49,10 +48,15 @@ public class Buku {
     }
 
     public String getPenerbit() {
-        return penerbit;
+        return Penerbit;
     }
 
-    public void setPenerbit(String penerbit) {
-        this.penerbit = penerbit;
+    public void setPenerbit(String Penerbit) {
+        this.Penerbit = Penerbit;
     }
+    
+    
+    
+    
+    
 }

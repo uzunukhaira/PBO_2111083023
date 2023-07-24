@@ -12,9 +12,9 @@ import uzu.model.*;
  * @author LAB-MM
  */
 public interface BukuDao {
-    void save (Buku buku);
-    void update (int index, Buku buku);
-    void delete (int index);
-    Buku getBuku(int index);
-    List<Buku> getAllBuku();
+    void insert(Buku buku) throws Exception;
+    void update(Buku buku) throws Exception;
+    void delete(Buku buku) throws Exception;
+    Buku getBuku(String kodebuku) throws Exception;
+    List<Buku> getAll() throws Exception;
 }
